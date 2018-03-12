@@ -17,7 +17,9 @@ php:
 
 before_script:
     - pear install PHP_CodeSniffer
+    - ls 
     - git clone git://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git $(pear config-get php_dir)/PHP/CodeSniffer/Standards/WordPress
+    - cd WordPress-Coding-Standards && ls
 
 script:
     - phpcs --standard=WordPress
