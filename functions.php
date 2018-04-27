@@ -1,2 +1,6 @@
-<?php echo $a = '1';
+<?php
+/*
+  * Functions file
+  */
+echo '1';
 
