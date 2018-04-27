@@ -1,1 +1,2 @@
-<?php echo $a = "1"; ?>
+<?php echo $a = '1';
+
