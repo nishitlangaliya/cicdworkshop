@@ -53,7 +53,8 @@ before_script:
     - export WPCS_DIR=/tmp/wpcs
     - export PHPCOMPAT_DIR=/tmp/phpcompatibility
     # Install CodeSniffer for WordPress Coding Standards checks.
-    - if [[ "$SNIFF" == "1" ]]; then git clone -b master --depth 1 https://github.com/squizlabs/PHP_CodeSniffer.git $PHPCS_DIR; fi
+    #- if [[ "$SNIFF" == "1" ]]; then git clone -b master --depth 1 https://github.com/squizlabs/PHP_CodeSniffer.git $PHPCS_DIR; fi
+    - if [[ "$SNIFF" == "1" ]]; then git clone -b 2.9 --single-branch https://github.com/squizlabs/PHP_CodeSniffer.git php-codesniffer --depth=1 $PHPCS_DIR; fi
     # Install WordPress Coding Standards.
     - if [[ "$SNIFF" == "1" ]]; then git clone -b 0.14.1 --depth 1 https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git $WPCS_DIR; fi
     # Install PHP Compatibility sniffs.
