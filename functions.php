@@ -1,6 +1,7 @@
 <?php
-/*
-  * Functions file
-  */
+/**
+ * Function File
+ */
+
 echo '1';
 
