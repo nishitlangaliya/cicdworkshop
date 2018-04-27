@@ -52,7 +52,8 @@ before_script:
     # Set up temporary paths.
     - export PHPCS_DIR=/tmp/phpcs
     - export WPCS_DIR=/tmp/wpcs
-    #- export PHPCOMPAT_DIR=/tmp/phpcompatibility
+    - mkdir -p $WPCS_DIR
+    - export PHPCOMPAT_DIR=/tmp/phpcompatibility
     # Install CodeSniffer for WordPress Coding Standards checks.
     - if [[ "$SNIFF" == "1" ]]; then git clone -b master --depth 1 https://github.com/squizlabs/PHP_CodeSniffer.git $PHPCS_DIR; fi
     # Install WordPress Coding Standards.
