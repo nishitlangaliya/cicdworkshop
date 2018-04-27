@@ -47,4 +47,7 @@ script:
   # You can use any of the normal PHPCS command line arguments in the command:
   # https://github.com/squizlabs/PHP_CodeSniffer/wiki/Usage
   - if [[ "$SNIFF" == "1" ]]; then $PHPCS_DIR/bin/phpcs -p . --standard=WordPress; fi
- email:false
+# Receive notifications for build results.
+# @link https://docs.travis-ci.com/user/notifications/#Email-notifications
+notifications:
+    email: false
