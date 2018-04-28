@@ -1,15 +1,18 @@
-language: php
+# Travis CI (MIT License) configuration file for the Underscores WordPress theme.
+# @link https://travis-ci.org/
 
-addons:
-  chrome: stable
-  apt:
-    packages:
-      - nginx
+# For use with the Underscores WordPress theme.
+# @link https://github.com/Automattic/_s
 
+# Ditch sudo and use containers.
+# @link https://docs.travis-ci.com/user/migrating-from-legacy/#Why-migrate-to-container-based-infrastructure%3F
+# @link https://docs.travis-ci.com/user/workers/container-based-infrastructure/#Routing-your-build-to-container-based-infrastructure
 sudo: false
+dist: trusty
 
-env:
-  - WP_VERSION=latest WP_MULTISITE=0
+# Declare project language.
+# @link https://about.travis-ci.org/docs/user/languages/php/
+language: php
 
 matrix:
   include:
@@ -36,7 +39,9 @@ before_install:
   - if [[ "$SNIFF" == "1" ]]; then $PHPCS_DIR/bin/phpcs --config-set installed_paths $SNIFFS_DIR; fi
   # After CodeSniffer install you should refresh your path.
   - if [[ "$SNIFF" == "1" ]]; then phpenv rehash; fi
-
+before_script:
+  - export PATH="$HOME/.composer/vendor/bin:$PATH"
+   
 script:
   # Run against WordPress Coding Standards.
   # If you use a custom ruleset, change `--standard=WordPress` to point to your ruleset file,
@@ -46,14 +51,15 @@ script:
   - if [[ "$SNIFF" == "1" ]]; then $PHPCS_DIR/bin/phpcs -p . --standard=WordPress; fi
   - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash ./travis/run_on_pull_requests; fi'
   - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bash ./travis/run_on_non_pull_requests; fi'
+  - bash tests/bin/run-e2e-CI.sh
 # Receive notifications for build results.
 # @link https://docs.travis-ci.com/user/notifications/#Email-notifications
-notifications:
-    email: false
 
+after_script:
+  - bash tests/bin/travis.sh after
 # Specifies that Travis should create builds for master and release branches and also tags.
 branches:
   only:
     - master
-    - /^\d+\.\d+(\.\d+)?(-\S*)?$/
-    - /^release\//
+notifications:
+    email: false
