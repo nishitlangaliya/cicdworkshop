@@ -49,13 +49,9 @@ script:
   - if [[ "$SNIFF" == "1" ]]; then $PHPCS_DIR/bin/phpcs -p . --standard=WordPress; fi
   - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash ./travis/run_on_pull_requests; fi'
   - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then bash ./travis/run_on_non_pull_requests; fi'
-  - bash tests/bin/run-e2e-CI.sh
+ 
 # Receive notifications for build results.
 # @link https://docs.travis-ci.com/user/notifications/#Email-notifications
-
-after_script:
-  - bash tests/bin/travis.sh after
-# Specifies that Travis should create builds for master and release branches and also tags.
 branches:
   only:
     - master
