@@ -14,10 +14,8 @@ dist: trusty
 # @link https://about.travis-ci.org/docs/user/languages/php/
 language: php
 
-matrix:
-  include:
     # Arbitrary PHP version to run the sniffs against.
-    php:
+php:
     - "7.0"
     - "5.6"
     - "5.5"
@@ -26,7 +24,7 @@ matrix:
     # Current $required_php_version for WordPress: 5.2.4
     - "5.2"
    
-      env: SNIFF=1
+env: SNIFF=1
 
 before_install:
   - if [[ "$SNIFF" == "1" ]]; then export PHPCS_DIR=/tmp/phpcs; fi
