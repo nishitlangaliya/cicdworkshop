@@ -1,6 +1,6 @@
 <?php
 /**
- * Function File
+ * Function File checking code.
  *
  * @package WordPress
  */
