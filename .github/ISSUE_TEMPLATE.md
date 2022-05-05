@@ -1,32 +1,42 @@
-# Expected Behavior
+## User Story
 
-Please describe the behavior you are expecting
+As a [type of user], I want [some goal] so that [some reason].
 
-# Current Behavior
+## Details
 
-What is the current behavior?
+<!-- Describe the buggy behavior including any warnings or errors. -->
 
-# Failure Information (for bugs)
+## Expected Behavior
 
-Please help provide information about the failure if this is a bug. If it is not a bug, please remove the rest of this template.
+<!-- Describe what should have happened. Be specific. -->
 
 ## Steps to Reproduce
 
-Please provide detailed steps for reproducing the issue.
+1. Go to...
+2. Select...
+3. Scroll down to...
+4. View error
 
-1. step 1
-2. step 2
-3. you get it...
+## Visuals
 
-## Context
+<!-- If applicable, add screenshots or video to help explain the problem. -->
 
-Please provide any relevant information about your setup. This is important in case the issue is not reproducible except for under certain conditions.
+## Additional Context
 
-* Firmware Version:
-* Operating System:
-* SDK version:
-* Toolchain version:
+<!-- Add any other context about the problem here. -->
 
-## Failure Logs
+## System Information
 
-Please include any relevant log snippets or files here.
+<details><summary>Details</summary>
+
+<!-- Paste system information here. -->
+
+</details>
+
+## Acceptance Criteria
+
+<!-- Define conditions that must be true in order to close the issue. -->
+
+-   [ ] Something happens when an action is taken.
+-   [ ] Something does not happen when an action is taken.
+-   [ ] Fixing behavior in Component A does not affect existing behavior in Component B.
